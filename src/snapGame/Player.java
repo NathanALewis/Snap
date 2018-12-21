@@ -28,5 +28,10 @@ public class Player {
 		return card;
 	}
 
+	public int handSize() {
+		return hand.size();
+	}
+	
+
 	
 }

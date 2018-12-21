@@ -46,4 +46,9 @@ public class PlayedCardStack {
 		return cards;
 	}
 
+	public String getStatus() {
+		// TODO Auto-generated method stub
+		return "There are " + playedCards + " in the stack, and the top card is " + lastCardPlayed.toString();
+	}
+
 }

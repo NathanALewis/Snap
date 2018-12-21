@@ -31,7 +31,7 @@ public class PlayerTest {
 		hand.add(firstCard); 
 		hand.add(secondCard);
 		
-		Player player = new Player(hand, new SnapGame());
+		Player player = new Player(hand, new SnapGame(1));
 		
 		Queue<Card> playedCards = new LinkedList<Card>();
 		Card firstPlayedCard = new Card("Diamonds", "Four");
@@ -51,7 +51,7 @@ public class PlayerTest {
 	@Test
 	public void playCardwhenHandIsEmpty() {
 		Queue<Card> hand = new LinkedList<Card>();
-		Player player = new Player(hand, new SnapGame());
+		Player player = new Player(hand, new SnapGame(1));
 		assertNull("Should return null", player.playCard());
 	}
 }
