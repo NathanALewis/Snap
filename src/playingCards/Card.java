@@ -15,6 +15,13 @@ public class Card {
 	}
 
 
+	public Card(Suit suit, Rank rank) {
+		this.suit = suit;
+		this.rank = rank;
+		// TODO Auto-generated constructor stub
+	}
+
+
 	/**
 	 * Sees if the card passed as a parameter is of the same rank as this card
 	 * @param cardB card to check this card's rank against
