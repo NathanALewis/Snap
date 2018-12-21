@@ -45,7 +45,7 @@ public class SnapGame {
 		players = new ArrayList<Player>(numberOfPlayers);
 		List<Queue<Card>> playerHands = deck.dealExactlyEvenly(numberOfPlayers);
 		for (int i = 0; i < playerHands.size(); i++) {
-			players.add(new Player(playerHands.get(i), this, i + 1));
+			players.add(new Player(playerHands.get(i), this));
 		}
 		
 		//List of players to remove

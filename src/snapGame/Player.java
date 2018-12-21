@@ -13,19 +13,28 @@ public class Player {
 	
 	//The stack of cards the player currently has 
 	private Queue<Card> hand;
+	//reference to game being played
 	private SnapGame game;
 	//Number that uniquely identifies this player 
 	private int playerNumber;
-
+	//next player number
+	private static int nextPlayerNumber = 1;
+	
+	
 	/**
 	 * Creates a new player with a starting hand and a reference to the game the player is in
 	 * @param hand a queue of cards for the player's hand
 	 * @param snapGame game the player is in
 	 */
-	public Player(Queue<Card> hand, SnapGame snapGame, int playerNumber) {
+	public Player(Queue<Card> hand, SnapGame snapGame) {
 		this.hand = hand;
 		this.game = snapGame;
-		this.playerNumber = playerNumber;
+		this.playerNumber = nextPlayerNumber();
+	}
+
+	private int nextPlayerNumber() {
+		// TODO Auto-generated method stub
+		return nextPlayerNumber++;
 	}
 
 	/**
