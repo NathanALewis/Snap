@@ -1,5 +1,5 @@
 package playingCards;
 
 enum Suit {
-	DIAMONS, HEARTS, CLUBS, SPADES
+	DIAMONDS, HEARTS, CLUBS, SPADES
 }
