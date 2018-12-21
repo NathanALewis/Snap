@@ -110,7 +110,14 @@ public class SnapGame {
 		return str; 
 	}
 
-	public String getWinner() {
+	/**
+	 * Returns the winner once there is a winner 
+	 * @return
+	 */
+	public String getWinner() throws IllegalStateException {
+		if (players.size() != 1) {
+			throw new IllegalStateException("Game is still in progress, no winner found yet. ");
+		}
 		return "Player " + players.get(0).playerNumber() + " is the winner!";
 	}
 
