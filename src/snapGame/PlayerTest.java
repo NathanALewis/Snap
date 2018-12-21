@@ -37,13 +37,21 @@ public class PlayerTest {
 		Card firstPlayedCard = new Card("Diamonds", "Four");
 		Card secondPlayedCard = new Card("Spades", "Four");
 		
+		playedCards.add(firstPlayedCard);
+		playedCards.add(secondPlayedCard);
 		player.pickup(playedCards);
 		
-		assertEquals("Player should play first card in hand", player.playCard(), firstCard);
-		assertEquals("Player should play second card in hand", player.playCard(), secondCard);
-		assertEquals("Player should play first card played", player.playCard(), firstPlayedCard);
-		assertEquals("Player should play second card played", player.playCard(), secondPlayedCard);
-		
+		assertEquals("Player should play first card in hand", firstCard, player.playCard());
+		assertEquals("Player should play second card in hand", secondCard, player.playCard());
+		assertEquals("Player should play first card played", firstPlayedCard, player.playCard());
+		assertEquals("Player should play second card played", secondPlayedCard, player.playCard());
 	}
 	
+	
+	@Test
+	public void playCardwhenHandIsEmpty() {
+		Queue<Card> hand = new LinkedList<Card>();
+		Player player = new Player(hand, new SnapGame());
+		assertNull("Should return null", player.playCard());
+	}
 }

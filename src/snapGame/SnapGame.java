@@ -10,5 +10,10 @@ public class SnapGame {
 		//Initialise deck of cards
 		//Initialise players with a hand of cards
 	}
+
+	public void removePlayer(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

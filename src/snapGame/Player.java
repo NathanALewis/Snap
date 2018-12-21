@@ -6,19 +6,26 @@ import java.util.Queue;
 import playingCards.Card;
 
 public class Player {
+	
+	private Queue<Card> hand;
+	private SnapGame game;
 
 	public Player(Queue<Card> hand, SnapGame snapGame) {
-		// TODO Auto-generated constructor stub
+		this.hand = hand;
+		this.game = snapGame;
 	}
 
 	public void pickup(Queue<Card> playedCards) {
-		// TODO Auto-generated method stub
+		hand.addAll(playedCards);
 		
 	}
 
 	public Card playCard() {
-		// TODO Auto-generated method stub
-		return null;
+		Card card = hand.poll();
+		if (card == null) {
+			game.removePlayer(this);
+		}
+		return card;
 	}
 
 	
