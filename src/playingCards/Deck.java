@@ -51,7 +51,7 @@ public class Deck {
 		List<Queue<Card>> hands = new ArrayList<Queue<Card>>(numberOfPlayers);
 		for (int i = 0; i < numberOfPlayers; i++) {
 			Queue<Card> hand = new LinkedList<Card>();
-			hand.addAll(deck.subList(0, 52 / numberOfPlayers));
+			hand.addAll(deck.subList(0, 52 / numberOfPlayers));//Takes out an equal number of cards from the deck which has been suffled 
 			deck.removeAll(hand);
 			hands.add(hand);
 		}

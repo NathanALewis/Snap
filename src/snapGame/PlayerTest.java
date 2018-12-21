@@ -2,16 +2,13 @@ package snapGame;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import playingCards.Card;
-import playingCards.Deck;
 
 public class PlayerTest {
 
@@ -31,7 +28,7 @@ public class PlayerTest {
 		hand.add(firstCard); 
 		hand.add(secondCard);
 		
-		Player player = new Player(hand, new SnapGame(1));
+		Player player = new Player(hand, new SnapGame(1), 1);
 		
 		Queue<Card> playedCards = new LinkedList<Card>();
 		Card firstPlayedCard = new Card("Diamonds", "Four");
@@ -51,7 +48,7 @@ public class PlayerTest {
 	@Test
 	public void playCardwhenHandIsEmpty() {
 		Queue<Card> hand = new LinkedList<Card>();
-		Player player = new Player(hand, new SnapGame(1));
+		Player player = new Player(hand, new SnapGame(1), 1);
 		assertNull("Should return null", player.playCard());
 	}
 }

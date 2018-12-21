@@ -25,6 +25,9 @@ public class PlayedCardStack {
 	 * @return true if the card being played has the same rank as the card on the top of the stack, false otherwise
 	 */
 	public boolean play(Card card) {
+		if (card == null) {
+			return false;
+		}
 		boolean isMatchingPair = false;
 		playedCards.add(card);
 		if (lastCardPlayed == null) {//first card on stack
@@ -47,8 +50,7 @@ public class PlayedCardStack {
 	}
 
 	public String getStatus() {
-		// TODO Auto-generated method stub
-		return "There are " + playedCards + " in the stack, and the top card is " + lastCardPlayed.toString();
+		return "There are " + playedCards.size() + " cards in the stack, and the top card is " + lastCardPlayed.toString();
 	}
 
 }

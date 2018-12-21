@@ -34,7 +34,12 @@ public class SnapTUI {
 			System.out.println(game.getStatus());
 		}
 		
+		System.out.println(game.getWinner());
 		
+	}
+	
+	public static void main(String args[]) {
+		new SnapTUI();
 	}
 
 }

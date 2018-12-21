@@ -13,8 +13,14 @@ public class SnapGame {
 	private List<Player> players;
 	private PlayedCardStack centreStack;
 	private Random generator;
+	private List<Player> playersToRemove;
 	
 
+	/**
+	 * Creates a new game of snap with the given number of players
+	 * @param numberOfPlayers number of players in the game
+	 * @throws IllegalArgumentException if number of players is <2 or >13
+	 */
 	public SnapGame(int numberOfPlayers) throws IllegalArgumentException {
 		if (numberOfPlayers < 2) {
 			throw new IllegalArgumentException("Must have at least 2 players");
@@ -31,9 +37,11 @@ public class SnapGame {
 		//Initialise players with a hand of cards
 		players = new ArrayList<Player>(numberOfPlayers);
 		List<Queue<Card>> playerHands = deck.dealExactlyEvenly(numberOfPlayers);
-		for (Queue<Card> hand : playerHands) {
-			players.add(new Player(hand, this));
+		for (int i = 0; i < playerHands.size(); i++) {
+			players.add(new Player(playerHands.get(i), this, i + 1));
 		}
+		
+		//List of players to remove
 		
 		generator = new Random();
 		//Game ready to play
@@ -44,12 +52,17 @@ public class SnapGame {
 	 * @return false if there is only 1 player remaining, true otherwise 
 	 */
 	public boolean playOneRound() {
+		//players to be removed
+		playersToRemove = new ArrayList<Player>();
 		
 		for (Player player : players) {
 			if (centreStack.play(player.playCard())) {//Match has been made
 				snap();
 			} 
 		}
+		
+		players.removeAll(playersToRemove);
+		
 		
 		//true if only one player remains, game over
 		return players.size() != 1;
@@ -70,7 +83,7 @@ public class SnapGame {
 	 * @param player the player that has run out of cards. 
 	 */
 	public void removePlayer(Player player) {
-		players.remove(player);
+		playersToRemove.add(player);
 	}
 
 	/**
@@ -80,12 +93,17 @@ public class SnapGame {
 	public String getStatus() {
 		String str = ""; 
 		str += centreStack.getStatus() + "\n";
-		int i = 1;
+		
 		for (Player player : players) {
-			str += "Player 1 has " + player.handSize() + "\n";
+			str += "Player " + player.playerNumber() + " has " + player.handSize() + "\n";
 		}
 		
 		return str; 
+	}
+
+	public String getWinner() {
+		// TODO Auto-generated method stub
+		return "Player " + players.get(0).playerNumber() + " is the winner!";
 	}
 
 }

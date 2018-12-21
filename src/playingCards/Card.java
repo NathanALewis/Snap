@@ -1,13 +1,20 @@
 package playingCards;
 
+/**
+ * Represents a card from a standard 52-card playing deck
+ * @author Nathan Lewis
+ *
+ */
 public class Card {
 
 	private Rank rank;
 	private Suit suit;
+	
+	
 	/**
 	 * Creates a card of the given suit and rank
-	 * @param string
-	 * @param i
+	 * @param suit Rank of the card as a word. e.g. "Spades", "Hearts"
+	 * @param rank Rank of the card, as a word. e.g. "Two", "Seven", "Ace"
 	 */
 	public Card(String suit, String rank) {
 		this.rank = Rank.valueOf(rank.toUpperCase());
@@ -15,6 +22,11 @@ public class Card {
 	}
 
 
+	/**
+	 * Creates a card of the given suit and rank
+	 * @param suit Suit of the card
+	 * @param rank Rank of the card
+	 */
 	public Card(Suit suit, Rank rank) {
 		this.suit = suit;
 		this.rank = rank;
@@ -35,7 +47,7 @@ public class Card {
 	 * Returns the rank followed by the suit of this card 
 	 */
 	public String toString() {
-		return rank + " " + suit;
+		return suit + " " + rank;
 	}
 
 }
