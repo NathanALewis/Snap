@@ -13,14 +13,9 @@ public class CardTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void cardsOfEqualRank() {
-		Card cardA = new Card("Club", "EIGHT");
-		Card cardB = new Card("Heart", "EIGHT");
+		Card cardA = new Card("Clubs", "EIGHT");
+		Card cardB = new Card("Hearts", "EIGHT");
 		
 		assertTrue("Cards should be of equal rank", cardA.equalRank(cardB));
 		
@@ -28,10 +23,10 @@ public class CardTest {
 	
 	@Test 
 	public void cardsNotOfEqualRank() {
-		Card cardA = new Card("Club", "Eight");
-		Card cardB = new Card("Heart", "Nine");
+		Card cardA = new Card("Clubs", "Eight");
+		Card cardB = new Card("Hearts", "Nine");
 		
-		assertTrue("Cards should not be of equal rank", cardA.equalRank(cardB));
+		assertFalse("Cards should not be of equal rank", cardA.equalRank(cardB));
 	}
 	
 }
