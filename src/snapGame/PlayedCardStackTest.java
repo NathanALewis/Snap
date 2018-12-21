@@ -16,6 +16,9 @@ public class PlayedCardStackTest {
 	}
 	
 
+	/**
+	 * Tests adding cards which are of different rank, and therefore should not return true
+	 */
 	@Test
 	public void addCardWithoutPickup() {
 		PlayedCardStack playedCards = new PlayedCardStack();
@@ -28,6 +31,9 @@ public class PlayedCardStackTest {
 		
 	}
 	
+	/**
+	 * Tests adding cards of same rank, returning true to show this 
+	 */
 	@Test
 	public void addCardWithPickup() {
 		PlayedCardStack playedCards = new PlayedCardStack();
@@ -40,6 +46,9 @@ public class PlayedCardStackTest {
 		
 	}
 	
+	/**
+	 * Tests retriving cards in the correct order 
+	 */
 	@Test
 	public void retrieveCards() {
 		PlayedCardStack playedCards = new PlayedCardStack();

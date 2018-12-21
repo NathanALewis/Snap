@@ -12,6 +12,9 @@ public class CardTest {
 		
 	}
 
+	/**
+	 * Check that when cards have the same rank equalRank() returns true
+	 */
 	@Test
 	public void cardsOfEqualRank() {
 		Card cardA = new Card("Clubs", "EIGHT");
@@ -21,6 +24,9 @@ public class CardTest {
 		
 	}
 	
+	/**
+	 * Check that when cards do not have the same rank equalRank() returns false
+	 */
 	@Test 
 	public void cardsNotOfEqualRank() {
 		Card cardA = new Card("Clubs", "Eight");

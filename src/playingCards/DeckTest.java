@@ -16,6 +16,9 @@ public class DeckTest {
 
 
 	
+	/**
+	 * Deal out card evenly when 52 is divisible by the number of players 
+	 */
 	@Test
 	public void dealExactlyEvenly() {
 		Deck deck = new Deck();
@@ -28,6 +31,9 @@ public class DeckTest {
 		
 	}
 	
+	/**
+	 * Deal out cards when 53 is not divisible by the number of players 
+	 */
 	@Test
 	public void dealExactlyEvenlyWithDiscards() {
 		Deck deck = new Deck();

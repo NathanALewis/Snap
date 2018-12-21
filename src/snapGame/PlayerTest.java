@@ -19,7 +19,9 @@ public class PlayerTest {
 	}
 
 
-	
+	/**
+	 * Tests whether the player picks up cards inthe correct order 
+	 */
 	@Test
 	public void pickupCards() {
 		Queue<Card> hand = new LinkedList<Card>();
@@ -45,6 +47,9 @@ public class PlayerTest {
 	}
 	
 	
+	/**
+	 * Tests that null is returned when player hand is empty
+	 */
 	@Test
 	public void playCardwhenHandIsEmpty() {
 		Queue<Card> hand = new LinkedList<Card>();

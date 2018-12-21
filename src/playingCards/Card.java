@@ -7,8 +7,8 @@ package playingCards;
  */
 public class Card {
 
-	private Rank rank;
-	private Suit suit;
+	private final Rank rank;
+	private final Suit suit;
 	
 	
 	/**
@@ -30,7 +30,6 @@ public class Card {
 	public Card(Suit suit, Rank rank) {
 		this.suit = suit;
 		this.rank = rank;
-		// TODO Auto-generated constructor stub
 	}
 
 

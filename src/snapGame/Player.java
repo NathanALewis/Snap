@@ -4,11 +4,17 @@ import java.util.Queue;
 
 import playingCards.Card;
 
+/**
+ * Represents a player playing snap
+ * @author Nathan32
+ *
+ */
 public class Player {
 	
 	//The stack of cards the player currently has 
 	private Queue<Card> hand;
 	private SnapGame game;
+	//Number that uniquely identifies this player 
 	private int playerNumber;
 
 	/**
@@ -51,6 +57,10 @@ public class Player {
 		return hand.size();
 	}
 	
+	/**
+	 * The player number of this player
+	 * @return the number of this player 
+	 */
 	public int playerNumber() {
 		return playerNumber;
 	}

@@ -28,6 +28,7 @@ public class Deck {
 			}
 		}
 		generator = new Random();
+		//shuffle the deck after creation
 		shuffle();
 	}
 
@@ -46,13 +47,24 @@ public class Deck {
 	 * Distributes the cards in this deck exactly equally. If any cards are left over, they are not dealt.
 	 * @param numberOfPlayers the number of hands to deal out
 	 * @return A List of Queues of Cards, representing the hands that have been created
+	 * @throws IllegalArgumentException if number of players <1 or >52
 	 */
-	public List<Queue<Card>> dealExactlyEvenly(int numberOfPlayers) {
+	public List<Queue<Card>> dealExactlyEvenly(int numberOfPlayers) throws IllegalArgumentException {
+		if (numberOfPlayers < 1) {
+			throw new IllegalArgumentException("numberOfPlayers == " + numberOfPlayers + ", must be >= 1");
+		}
+		if (numberOfPlayers > 52) {
+			throw new IllegalArgumentException("numberOfPlayers == " + numberOfPlayers + ", must be <= 52");
+		}
+		
 		List<Queue<Card>> hands = new ArrayList<Queue<Card>>(numberOfPlayers);
 		for (int i = 0; i < numberOfPlayers; i++) {
 			Queue<Card> hand = new LinkedList<Card>();
-			hand.addAll(deck.subList(0, 52 / numberOfPlayers));//Takes out an equal number of cards from the deck which has been suffled 
+			//Takes out an equal number of cards from the deck which has been shuffled 
+			hand.addAll(deck.subList(0, 52 / numberOfPlayers));
+			//Removes selected cards from the deck
 			deck.removeAll(hand);
+			//add selected cards to a hand
 			hands.add(hand);
 		}
 		return hands;

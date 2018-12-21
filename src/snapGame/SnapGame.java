@@ -8,11 +8,18 @@ import java.util.Random;
 import playingCards.Card;
 import playingCards.Deck;
 
+/**
+ * Represents a game of snap
+ * @author Nathan32
+ *
+ */
 public class SnapGame {
 
 	private List<Player> players;
+	//The place where cards are played into
 	private PlayedCardStack centreStack;
 	private Random generator;
+	//List of players to be removed 
 	private List<Player> playersToRemove;
 	
 
@@ -74,7 +81,9 @@ public class SnapGame {
 	 * Chooses a random player to win the stack of cards after a march has been made
 	 */
 	private void snap() {
+		//Gets a random player from the list 
 		Player snappedPlayer = players.get(generator.nextInt(players.size()));
+		//Selected player wins the cards
 		snappedPlayer.pickup(centreStack.retrieveCards());
 	}
 
@@ -102,7 +111,6 @@ public class SnapGame {
 	}
 
 	public String getWinner() {
-		// TODO Auto-generated method stub
 		return "Player " + players.get(0).playerNumber() + " is the winner!";
 	}
 
