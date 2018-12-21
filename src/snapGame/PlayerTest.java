@@ -21,10 +21,7 @@ public class PlayerTest {
 		
 	}
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
+
 	
 	@Test
 	public void pickupCards() {
@@ -47,7 +44,6 @@ public class PlayerTest {
 		assertEquals("Player should play first card played", player.playCard(), firstPlayedCard);
 		assertEquals("Player should play second card played", player.playCard(), secondPlayedCard);
 		
-		fail("Not yet implemented");
 	}
 	
 }
